@@ -12,5 +12,12 @@ data:extend({
 		setting_type = "runtime-global",
 		default_value = "go-after",
         allowed_values = {"go-first", "go-after"}
-	}
+	},
+	{
+		type = "int-setting",
+		name = "train-refueling-inactivity-time",
+		setting_type = "runtime-global",
+		default_value = 2,
+		minimum_value = 2
+	},
 })
