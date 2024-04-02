@@ -237,7 +237,8 @@ function AddSchedule(train)
 		if record.station == global.TrainStopName then return end
 	end
 	
-	local record = {station = global.TrainStopName, wait_conditions = {{type = "inactivity", compare_type = "and", ticks = 120 }}}
+	local inactivity_ticks = settings.global['train-refueling-inactivity-time'].value * 60
+	local record = {station = global.TrainStopName, wait_conditions = {{type = "inactivity", compare_type = "and", ticks = inactivity_ticks }}}
 
 	if settings.global['fuel-station-insert-order'].value == "go-after" then
 		table.insert(schedule.records,schedule.current + 1,record)
